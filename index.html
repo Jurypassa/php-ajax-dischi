@@ -21,19 +21,19 @@
             <div class="container">
                   <div class="serchBar">
                     <div>
-                        <input type="text" placeholder="Inserisci il nome" v-model="searchText">
+                        <input type="text" placeholder="Inserisci il nome">
                         <button class="blue">Search</button>
                         <button class="orange">Reset</button>
                     </div>
                   </div>
                   
                   <div class="flex">
-                      <div class="box" v-for="(card, index) in cards" :key="index">
+                      <div class="box" v-for="element in elements">
                         <div class="card">
-                            <img :src="info.poster" :alt="info.title">
-                            <p class="white">{{info.title}}</p>
-                            <p class="gray">{{info.author}}</p>
-                            <p class="gray">{{info.year}}</p>
+                            <img :src="element.poster" :alt="element.title">
+                            <p class="white">{{element.title}}</p>
+                            <p class="gray">{{element.author}}</p>
+                            <p class="gray">{{element.year}}</p>
                         </div>
                       </div>
                   </div>
@@ -52,7 +52,3 @@
 
 
 
-<ul v-for="element in elements">
-    <li>{{element.title}}</li>
-    <li>{{element.year}}</li>
-</ul>
