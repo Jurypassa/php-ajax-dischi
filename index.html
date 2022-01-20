@@ -6,16 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <title>PHP Dischi</title>
 </head>
 <body>
     
     <div id="app">
 
-        <ul v-for="element in elements">
-            <li>{{element.title}}</li>
-            <li>{{element.year}}</li>
-        </ul>
+        <header>
+            <img class="logo" src="https://play-lh.googleusercontent.com/UrY7BAZ-XfXGpfkeWg0zCCeo-7ras4DCoRalC_WXXWTK9q5b0Iw7B0YQMsVxZaNB7DM" alt="logo spotify">
+        </header>
+
+        <main>
+            <div class="container">
+                  <div class="serchBar">
+                    <div>
+                        <input type="text" placeholder="Inserisci il nome" v-model="searchText">
+                        <button class="blue">Search</button>
+                        <button class="orange">Reset</button>
+                    </div>
+                  </div>
+                  
+                  <div class="flex">
+                      <div class="box" v-for="(card, index) in cards" :key="index">
+                        <div class="card">
+                            <img :src="info.poster" :alt="info.title">
+                            <p class="white">{{info.title}}</p>
+                            <p class="gray">{{info.author}}</p>
+                            <p class="gray">{{info.year}}</p>
+                        </div>
+                      </div>
+                  </div>
+                  
+              </div>
+        </main>
+        
 
     </div>
 
@@ -24,3 +49,10 @@
     <script src="js/main.js"></script>
 </body>
 </html>
+
+
+
+<ul v-for="element in elements">
+    <li>{{element.title}}</li>
+    <li>{{element.year}}</li>
+</ul>
